@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\Cours JS-REACT\\API Fetch MAP"
+		},
+		{
+			"path": "..\\..\\Ecommerce Project"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "rest-countries-api-with-color-theme-switcher-master"
+	}
+}

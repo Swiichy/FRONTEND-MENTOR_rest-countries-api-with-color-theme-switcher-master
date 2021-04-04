@@ -1,0 +1,474 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+}
+
+.custom-select select {
+  display: none;
+  /*hide original SELECT element: */
+}
+
+.select-selected {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--color-bg-secondary);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 45%;
+  right: 22px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: var(--color-text) transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent var(--color-text) transparent;
+  top: 35%;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div, .select-selected {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--color-text);
+  padding: 0px 16px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  height: 52.4px;
+}
+
+/* Style items (options): */
+.select-items {
+  margin-top: 0.3rem;
+  position: absolute;
+  background-color: var(--color-bg-secondary);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+}
+
+#container {
+  height: 100vh;
+  background: var(--color-bg-main);
+}
+
+.backButton {
+  background: var(--color-bg-main);
+}
+
+.backButton a {
+  max-width: 136px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
+          box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
+  border-radius: 6px;
+  margin: 80px 0px 80px 80px;
+  cursor: pointer;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.backButton a i {
+  padding-left: 32px;
+}
+
+.backButton a span {
+  font-size: 16px;
+  font-weight: 300 !important;
+  padding: 12px 39px 12px 10px;
+}
+
+.description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 80px;
+}
+
+.description__flag {
+  margin-right: 120px;
+}
+
+.description__flag img {
+  max-width: 560px;
+  max-height: 401px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.0294384);
+          box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.0294384);
+}
+
+.description__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: var(--color-text);
+}
+
+.description__info-first, .description__info-second {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.description__info-first h2, .description__info-second h2 {
+  font-weight: 800;
+  font-size: 32px;
+  padding-bottom: 23px;
+}
+
+.description__info-first span, .description__info-second span {
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.description__info-first li, .description__info-second li {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.description__info-first {
+  max-width: 207px;
+  margin-right: 141px;
+  margin-bottom: 68px;
+}
+
+.description__info-second {
+  margin-top: 67px;
+  position: relative;
+}
+
+.description__border {
+  color: var(--color-text);
+}
+
+.description__border span {
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: capitalize;
+  padding-right: 16px;
+}
+
+.description button {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  padding: 5px 19px 4px 20px;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: none;
+  -webkit-box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+          box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --border-radius: 0.35rem;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
+  --color-bg: #bebebe;
+  --color-icon: #bebebe;
+  --color-bg-main: #F2F2F2;
+  --color-bg-secondary: #ffffff;
+  --color-text: #000000;
+}
+
+.container.dark-mode {
+  --color-bg: #212E37;
+  --color-icon: #ffffff;
+  --color-bg-main: #202C36;
+  --color-bg-secondary: #2B3743;
+  --color-text: #ffffff;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: var(--color-bg-secondary);
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+  color: var(--color-text);
+}
+
+.header__title {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 33px;
+  padding: 23px 0 24px 81px;
+  color: var(--color-text);
+}
+
+.header__theme {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.header__theme span {
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: capitalize;
+  line-height: 22px;
+  padding: 29px 80px 29px 8px;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: var(--color-bg-main);
+}
+
+.main__select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 48px;
+  margin-bottom: 48px;
+  padding: 48px 80px 0;
+}
+
+.main__select-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 480px;
+  background: var(--color-bg-secondary);
+  -webkit-box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+          box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+  border-radius: 5px;
+}
+
+.main__select-input i {
+  padding: 19px 24px 19px 32px;
+  color: var(--color-icon);
+}
+
+.main__select-input input {
+  width: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  color: var(--color-icon);
+  background: var(--color-bg-secondary);
+  border: none;
+  border-radius: 5px;
+}
+
+.main__select-input input:focus {
+  outline: none;
+}
+
+.main__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0 0 0 40px;
+}
+
+.main__card-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 264px;
+  height: 336px;
+  margin: 0 38px 75px 38px;
+  background: var(--color-bg-secondary);
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+          box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+}
+
+.main__card-item img {
+  height: 160px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.main__card-item-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 176px;
+  padding-left: 24px;
+  color: var(--color-text);
+}
+
+.main__card-item-info span {
+  font-weight: 600;
+}
+
+.main__card-item-info p {
+  font-size: 14px;
+}
+
+.main__card-item-info-name {
+  font-size: 18px;
+  font-weight: 800;
+  padding: 24px 0 16px 0;
+}
+
+.main__card-item-info-text, .main__card-item-info-region {
+  padding-bottom: 8px;
+}
+
+.main__card-item-info-capital {
+  padding-bottom: 46px;
+}
