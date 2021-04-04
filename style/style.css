@@ -245,6 +245,10 @@ table {
   padding-right: 16px;
 }
 
+.description__border span#borderTitle {
+  text-transform: none;
+}
+
 .description button {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 300;

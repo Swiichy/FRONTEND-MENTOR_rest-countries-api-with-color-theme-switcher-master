@@ -12,6 +12,7 @@ const fetchCountries = async () => {
     const data = await countries.json()
     const filtreData = data.filter(country => country.alpha3Code === params)
     showCountries(filtreData);
+    checkBorder();
 };
 
 
@@ -44,7 +45,7 @@ const showCountries = data => {
                             </div>
                         </div>
                         <div class="description__border">
-                            <li><span>Border countries:</span>${bordersMapping(country.borders)}</li>
+                            <li><span id="borderTitle">Border Countries:</span>${bordersMapping(country.borders)}</li>
                         </div>
                     </div>
                 </ul>
@@ -52,7 +53,6 @@ const showCountries = data => {
         ))
     );
 };
-
 
 const bordersMapping = data => {
     let stringHTML = ''
@@ -69,6 +69,14 @@ const bordersMapping = data => {
         });
     } 
     return stringHTML
+}
+
+const checkBorder = () => {
+    if(document.body.contains(document.getElementById("border"))) {
+        console.log("ok");
+    } else {
+        document.getElementById("borderTitle").innerHTML = "This country has no border country";
+    }
 }
 
 

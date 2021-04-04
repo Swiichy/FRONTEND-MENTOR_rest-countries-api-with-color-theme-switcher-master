@@ -96,6 +96,10 @@
             text-transform: capitalize;
             padding-right: 16px;
         }
+
+        & span#borderTitle {
+            text-transform: none;
+        }
     }
 
     & button {
